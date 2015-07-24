@@ -33,7 +33,7 @@ namespace AnglesCamp.Areas.Security.Controllers
                 {
                     
                     member.MemberClub = "NONE";
-                    member.MemberPicture = "~UploadIMG/default_avatar.png";
+                    member.MemberPicture = "~/UploadIMG/default_avatar.png";
                     member.MemberType = "U";
 
                     objBs.Insert(member);
