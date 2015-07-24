@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BOL.ALevelRport>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="topDistance">Acceptable levels reported by users</h2>
+
+<p class="text-danger">Please Note that we will remove these reports as soon as we add the acceptable levels to the database</p>
+
+<div class="form-group">
+    <div class="row col-md-12 buttomForBtn">
+
+        @Html.ActionLink("Report Acceptable Water Level", "Index", "CreateLvLReport", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+<table class="table table-striped table-hover ">
+    <tr class="info">
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.County)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterBody)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Level)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Level)
+            </td>           
+        </tr>
+    }
+
+</table>

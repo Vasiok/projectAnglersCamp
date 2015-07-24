@@ -1,0 +1,152 @@
+﻿@model IEnumerable<BOL.WaterLevel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $(document).ajaxStart(function () {
+            $("#loading").show();
+        });
+
+        $(document).ajaxStop(function () {
+            $("#loading").hide();
+        });
+
+        $("#Update").click(function () {            
+
+            $.ajax({
+                type: "POST",
+                url: "@Url.Action("Update", "UpdateWaterLevel")"                
+            });
+            
+
+        });
+
+
+    });
+
+</script>
+
+
+<h2 class="topDistance">Update Water levels</h2>
+
+<div id="loading" class="modal topDistance">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Loading...</h4>
+            </div>
+            <div class="modal-body">
+                <div class="progress progress-striped active">
+                    <div class="progress-bar" style="width: 100%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@if(TempData["Msg"] != null)
+{
+    <div class="row">
+        <div class="col-md-12 alert alert-dismissible alert-info">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            @TempData["Msg"].ToString()
+        </div>
+    </div>
+}
+
+<ul class="nav nav-pills">    
+    <li class="active">@Html.ActionLink("County", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "County", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })</li>
+    <li class="active">@Html.ActionLink("Name", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "Name", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })</li>
+    <li class="active">@Html.ActionLink("Water Body", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "Water Body", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })</li>
+    <li class="active">@Html.ActionLink("Current Level", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "Current Level", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })</li>
+    <li class="active">@Html.ActionLink("Fishable", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : (ViewBag.SortOrder == "ASC" ? "DESC" : "ASC")), SortBy = "Fishable", page = (ViewBag.Page == null ? "1" : ViewBag.Page) })</li>
+</ul>
+
+
+
+<table class="table table-striped table-hover">
+    <tr class="info">
+        <th>
+            @Html.DisplayNameFor(model => model.County)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterBody)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WaterLevel1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AWaterLevel)
+        </th>
+        <th>Edit</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterBody)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterLevel1)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.AWaterLevel)
+                </td>*@
+            <td>
+                @if (item.AWaterLevel == "GOOD")
+                {
+                    <span class="alert-success">@Html.DisplayFor(modelItem => item.AWaterLevel)</span>
+                }
+                @if (item.AWaterLevel == "HIGH WATER")
+                {
+                    <span class="alert-danger">@Html.DisplayFor(modelItem => item.AWaterLevel)</span>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.WaterLevelId })
+            </td>
+        </tr>
+    }
+</table>
+
+@{
+    double TotalPages = ViewBag.TotalPages;
+}
+<ul class="pagination">
+    @for (int i = 1; i <= TotalPages; i++)
+    {
+        if (i == ViewBag.Page)
+        {
+            <li class="active">@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "County" : ViewBag.SortBy), Page = i })</li>
+        }
+        else
+        {
+            <li>@Html.ActionLink(i.ToString() + " ", "Index", new { SortOrder = (ViewBag.SortOrder == null ? "ASC" : ViewBag.SortOrder), SortBy = (ViewBag.SortBy == null ? "County" : ViewBag.SortBy), Page = i })</li>
+        }
+        
+    }
+</ul>
+
+<div class="row col-md-12 buttomSpace">
+    @Html.ActionLink("Update Water Levels", "Update", null, new { @class = "btn btn-primary", @id = "Update" })
+</div>
+
+<div class=" row col-md-12"></div>

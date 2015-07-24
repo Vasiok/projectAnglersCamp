@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnglersCampDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ALevelRports">
+    <Key>
+      <PropertyRef Name="ALReportId" />
+    </Key>
+    <Property Name="ALReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="County" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="WaterBody" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Level" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clubs">
+    <Key>
+      <PropertyRef Name="ClubId" />
+    </Key>
+    <Property Name="ClubId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClubName" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="NumberOfMembers" Type="int" Nullable="false" />
+    <Property Name="ClubManagerId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Members">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MemberName" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MemberEmail" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MemberPassword" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="MemberPicture" Type="nvarchar" MaxLength="100" />
+    <Property Name="MemberClub" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MemberType" Type="nvarchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ReportDate" Type="date" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Tactics" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Species" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Picture" Type="nvarchar" MaxLength="100" />
+    <Property Name="Visibility" Type="nvarchar" MaxLength="5" Nullable="false" />
+    <Property Name="MemberId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="WaterLevel">
+    <Key>
+      <PropertyRef Name="WaterLevelId" />
+    </Key>
+    <Property Name="WaterLevelId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="County" Type="nvarchar" MaxLength="30" />
+    <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="WaterBody" Type="nvarchar" MaxLength="60" Nullable="false" />
+    <Property Name="WaterLevel" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="AWaterLevel" Type="nvarchar" MaxLength="30" Nullable="false" />
+    <Property Name="URL" Type="nvarchar" MaxLength="60" />
+  </EntityType>
+  <Association Name="FK_CLUBMANAGERID">
+    <End Role="Members" Type="Self.Members" Multiplicity="1" />
+    <End Role="Clubs" Type="Self.Clubs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Clubs">
+        <PropertyRef Name="ClubManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERID">
+    <End Role="Members" Type="Self.Members" Multiplicity="1" />
+    <End Role="Report" Type="Self.Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Members">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AnglersCampDBModelStoreContainer">
+    <EntitySet Name="ALevelRports" EntityType="Self.ALevelRports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clubs" EntityType="Self.Clubs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Members" EntityType="Self.Members" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WaterLevel" EntityType="Self.WaterLevel" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CLUBMANAGERID" Association="Self.FK_CLUBMANAGERID">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Clubs" EntitySet="Clubs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERID" Association="Self.FK_USERID">
+      <End Role="Members" EntitySet="Members" />
+      <End Role="Report" EntitySet="Report" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

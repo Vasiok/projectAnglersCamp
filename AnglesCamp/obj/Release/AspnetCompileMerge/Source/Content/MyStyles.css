@@ -1,0 +1,31 @@
+﻿.topDistance
+{
+    margin-top: 70px;
+}
+
+.buttomSpace{
+    padding-bottom: 70px;
+}
+
+#imgSize{
+    height: 100%;
+    width: 100%;
+}
+
+#imgContainer{
+    width: 30 px;
+    height:50px;
+}
+
+.memberDistance{
+    margin-bottom:20px;
+}
+
+.buttomForBtn{
+    padding-bottom:20px;
+}
+
+.centerStuff{
+    margin-left:auto;
+    margin-right:auto;
+}

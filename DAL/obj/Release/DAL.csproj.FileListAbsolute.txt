@@ -1,0 +1,9 @@
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\bin\Release\DAL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\bin\Release\DAL.pdb
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\bin\Release\BOL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\bin\Release\EntityFramework.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\bin\Release\BOL.pdb
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\bin\Release\EntityFramework.xml
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\obj\Release\DAL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\DAL\obj\Release\DAL.pdb

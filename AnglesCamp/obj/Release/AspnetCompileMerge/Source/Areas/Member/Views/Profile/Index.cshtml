@@ -1,0 +1,93 @@
+﻿@model BOL.Member
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/magnific-popup.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.magnific-popup.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.image-link').magnificPopup({ type: 'image' });
+    });
+</script>
+
+<h2>Index</h2>
+
+<div>
+    <h4>Member</h4>
+    <hr />
+
+    @if (TempData["Msg"] != null)
+    {
+        <div class="row">
+            <div class="col-md-12 alert alert-dismissible alert-info">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                @TempData["Msg"].ToString()
+            </div>
+        </div>
+    }
+
+    <dl class="dl-horizontal">        
+        <dt>
+            <span class="label label-primary control-label col-md-12">                
+                @Html.DisplayNameFor(model => model.MemberPicture)
+            </span>
+        </dt>
+
+        <dd class="memberDistance">
+            
+            <a class="test-popup-link col-md-3" href="@Url.Content(@Model.MemberPicture)"><img src="@Url.Content(@Model.MemberPicture)" id="imgSize" /></a>            
+            <script>
+                $('.test-popup-link').magnificPopup({
+                    type: 'image'
+                    // other options
+                });
+            </script>
+        </dd>
+                
+        <dt>            
+            <span class="label label-primary control-label col-md-12">
+                @Html.DisplayNameFor(model => model.MemberName)
+            </span>            
+        </dt>
+
+        <dd class="memberDistance">
+            @Html.DisplayFor(model => model.MemberName)
+        </dd>
+
+        <dt>
+            <span class="label label-primary control-label col-md-12">
+                @Html.DisplayNameFor(model => model.MemberEmail)
+            </span>
+        </dt>
+
+        <dd class="memberDistance">
+            @Html.DisplayFor(model => model.MemberEmail)
+        </dd>
+
+        <dt>
+            <span class="label label-primary control-label col-md-12">
+                @Html.DisplayNameFor(model => model.MemberClub)
+             </span>
+        </dt>
+
+        <dd class="memberDistance">
+            @Html.DisplayFor(model => model.MemberClub)
+        </dd>
+       
+        <dt></dt>
+        <dd>
+            <div class="row col-md-12 buttomSpace">
+                @Html.ActionLink("Edit Profile", "Edit", "Profile",new { id = Model.MemberId },  new { @class = "btn btn-primary" }) |
+                @Html.ActionLink("Edit Picture", "EditPicture", "Profile", new { id = Model.MemberId }, new { @class = "btn btn-primary" })
+            </div>            
+        </dd>
+        
+
+    </dl>
+    
+</div>
+

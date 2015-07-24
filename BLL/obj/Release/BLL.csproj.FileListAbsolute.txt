@@ -1,0 +1,12 @@
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\BLL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\BLL.pdb
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\BOL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\DAL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\Newtonsoft.Json.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\EntityFramework.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\BOL.pdb
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\DAL.pdb
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Release\EntityFramework.xml
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\obj\Release\BLL.csprojResolveAssemblyReference.cache
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\obj\Release\BLL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\obj\Release\BLL.pdb

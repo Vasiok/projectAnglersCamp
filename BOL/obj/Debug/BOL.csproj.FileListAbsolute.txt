@@ -1,0 +1,10 @@
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\bin\Debug\BOL.dll.config
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\bin\Debug\BOL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\bin\Debug\BOL.pdb
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\bin\Debug\EntityFramework.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\bin\Debug\EntityFramework.xml
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\obj\Debug\BOL.dll
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\obj\Debug\BOL.pdb
+C:\Users\Vasiok\Desktop\AnglesCamp\BOL\obj\Debug\BOL.csprojResolveAssemblyReference.cache

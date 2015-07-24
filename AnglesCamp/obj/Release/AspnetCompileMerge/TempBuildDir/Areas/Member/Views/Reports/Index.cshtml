@@ -1,0 +1,101 @@
+﻿@model IEnumerable<BOL.Report>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<link href="~/Content/magnific-popup.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.magnific-popup.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.image-link').magnificPopup({ type: 'image' });
+    });
+</script>
+
+<div class="form-group">
+    <div class="row col-md-12 topDistance buttomSpace">
+        @Html.ActionLink("Create New Reprot", "Index", "CreateReport", null, new { @class = "btn btn-primary" })
+    </div>
+</div>
+
+@Html.Action("GetMyPrivReports")
+
+<h2>Public Reports</h2>
+
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+
+
+<table class="table table-striped table-hover">
+    <tr class="info">
+        <th>
+            <span class="label label-primary">
+                @Html.DisplayNameFor(model => model.ReportDate)
+            </span>
+        </th>
+        <th>
+            <span class="label label-primary">
+                @Html.DisplayNameFor(model => model.Location)
+            </span>
+        </th>
+        <th>
+            <span class="label label-primary">
+                @Html.DisplayNameFor(model => model.Tactics)
+            </span>
+        </th>
+        <th>
+            <span class="label label-primary">
+                @Html.DisplayNameFor(model => model.Species)
+            </span>
+        </th>
+        <th>
+            <span class="label label-primary">
+                @Html.DisplayNameFor(model => model.Picture)
+            </span>
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Visibility)
+            </th>*@
+        <th>
+            <span class="label label-primary">
+                @Html.DisplayNameFor(model => model.Member.MemberName)
+            </span>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class="col-md-1">
+                @Html.DisplayFor(modelItem => item.ReportDate)
+            </td>
+            <td class="col-md-2">
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td class="col-md-2">
+                @Html.DisplayFor(modelItem => item.Tactics)
+            </td>
+            <td class="col-md-2">
+                @Html.DisplayFor(modelItem => item.Species)
+            </td>
+            <td>
+
+                <a class="test-popup-link col-md-4" href="@Url.Content(@item.Picture)"><img src="@Url.Content(@item.Picture)" id="imgSize" /></a>
+                <script>
+                    $('.test-popup-link').magnificPopup({
+                        type: 'image'
+                        // other options
+                    });
+                </script>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Member.MemberName)
+            </td>
+        </tr>
+    }
+
+</table>

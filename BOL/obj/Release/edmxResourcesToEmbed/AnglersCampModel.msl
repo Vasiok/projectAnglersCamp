@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AnglersCampDBModelStoreContainer" CdmEntityContainer="AnglersCampEntities">
+    <EntitySetMapping Name="ALevelRports">
+      <EntityTypeMapping TypeName="AnglersCampDBModel.ALevelRport">
+        <MappingFragment StoreEntitySet="ALevelRports">
+          <ScalarProperty Name="Level" ColumnName="Level" />
+          <ScalarProperty Name="WaterBody" ColumnName="WaterBody" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ALReportId" ColumnName="ALReportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clubs">
+      <EntityTypeMapping TypeName="AnglersCampDBModel.Club">
+        <MappingFragment StoreEntitySet="Clubs">
+          <ScalarProperty Name="ClubManagerId" ColumnName="ClubManagerId" />
+          <ScalarProperty Name="NumberOfMembers" ColumnName="NumberOfMembers" />
+          <ScalarProperty Name="ClubName" ColumnName="ClubName" />
+          <ScalarProperty Name="ClubId" ColumnName="ClubId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Members">
+      <EntityTypeMapping TypeName="AnglersCampDBModel.Member">
+        <MappingFragment StoreEntitySet="Members">
+          <ScalarProperty Name="MemberType" ColumnName="MemberType" />
+          <ScalarProperty Name="MemberClub" ColumnName="MemberClub" />
+          <ScalarProperty Name="MemberPicture" ColumnName="MemberPicture" />
+          <ScalarProperty Name="MemberPassword" ColumnName="MemberPassword" />
+          <ScalarProperty Name="MemberEmail" ColumnName="MemberEmail" />
+          <ScalarProperty Name="MemberName" ColumnName="MemberName" />
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reports">
+      <EntityTypeMapping TypeName="AnglersCampDBModel.Report">
+        <MappingFragment StoreEntitySet="Report">
+          <ScalarProperty Name="MemberId" ColumnName="MemberId" />
+          <ScalarProperty Name="Visibility" ColumnName="Visibility" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+          <ScalarProperty Name="Species" ColumnName="Species" />
+          <ScalarProperty Name="Tactics" ColumnName="Tactics" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="ReportDate" ColumnName="ReportDate" />
+          <ScalarProperty Name="ReportId" ColumnName="ReportId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WaterLevels">
+      <EntityTypeMapping TypeName="AnglersCampDBModel.WaterLevel">
+        <MappingFragment StoreEntitySet="WaterLevel">
+          <ScalarProperty Name="URL" ColumnName="URL" />
+          <ScalarProperty Name="AWaterLevel" ColumnName="AWaterLevel" />
+          <ScalarProperty Name="WaterLevel1" ColumnName="WaterLevel" />
+          <ScalarProperty Name="WaterBody" ColumnName="WaterBody" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="County" ColumnName="County" />
+          <ScalarProperty Name="WaterLevelId" ColumnName="WaterLevelId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

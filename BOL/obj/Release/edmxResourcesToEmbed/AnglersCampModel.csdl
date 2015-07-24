@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnglersCampDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AnglersCampEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ALevelRports" EntityType="AnglersCampDBModel.ALevelRport" />
+    <EntitySet Name="Clubs" EntityType="AnglersCampDBModel.Club" />
+    <EntitySet Name="Members" EntityType="AnglersCampDBModel.Member" />
+    <EntitySet Name="Reports" EntityType="AnglersCampDBModel.Report" />
+    <EntitySet Name="WaterLevels" EntityType="AnglersCampDBModel.WaterLevel" />
+    <AssociationSet Name="FK_CLUBMANAGERID" Association="AnglersCampDBModel.FK_CLUBMANAGERID">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Club" EntitySet="Clubs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERID" Association="AnglersCampDBModel.FK_USERID">
+      <End Role="Member" EntitySet="Members" />
+      <End Role="Report" EntitySet="Reports" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="ALevelRport">
+    <Key>
+      <PropertyRef Name="ALReportId" />
+    </Key>
+    <Property Name="ALReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="County" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="WaterBody" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Level" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Club">
+    <Key>
+      <PropertyRef Name="ClubId" />
+    </Key>
+    <Property Name="ClubId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClubName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="NumberOfMembers" Type="Int32" Nullable="false" />
+    <Property Name="ClubManagerId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="AnglersCampDBModel.FK_CLUBMANAGERID" FromRole="Club" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="Member">
+    <Key>
+      <PropertyRef Name="MemberId" />
+    </Key>
+    <Property Name="MemberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MemberName" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MemberEmail" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MemberPassword" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="MemberPicture" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="MemberClub" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MemberType" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Clubs" Relationship="AnglersCampDBModel.FK_CLUBMANAGERID" FromRole="Member" ToRole="Club" />
+    <NavigationProperty Name="Reports" Relationship="AnglersCampDBModel.FK_USERID" FromRole="Member" ToRole="Report" />
+  </EntityType>
+  <EntityType Name="Report">
+    <Key>
+      <PropertyRef Name="ReportId" />
+    </Key>
+    <Property Name="ReportId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ReportDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Tactics" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Species" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Picture" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Visibility" Type="String" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+    <Property Name="MemberId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Member" Relationship="AnglersCampDBModel.FK_USERID" FromRole="Report" ToRole="Member" />
+  </EntityType>
+  <EntityType Name="WaterLevel">
+    <Key>
+      <PropertyRef Name="WaterLevelId" />
+    </Key>
+    <Property Name="WaterLevelId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="County" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="WaterBody" Type="String" Nullable="false" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="WaterLevel1" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AWaterLevel" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="URL" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_CLUBMANAGERID">
+    <End Type="AnglersCampDBModel.Member" Role="Member" Multiplicity="1" />
+    <End Type="AnglersCampDBModel.Club" Role="Club" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Club">
+        <PropertyRef Name="ClubManagerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERID">
+    <End Type="AnglersCampDBModel.Member" Role="Member" Multiplicity="1" />
+    <End Type="AnglersCampDBModel.Report" Role="Report" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Member">
+        <PropertyRef Name="MemberId" />
+      </Principal>
+      <Dependent Role="Report">
+        <PropertyRef Name="MemberId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

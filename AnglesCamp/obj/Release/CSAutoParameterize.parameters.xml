@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="AnglersCampEntities-Web.config Connection String" description="AnglersCampEntities Connection String used in web.config by the application to access the database." defaultValue="metadata=res://*/AnglersCampModel.csdl|res://*/AnglersCampModel.ssdl|res://*/AnglersCampModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=VASIOK-PC\SQLEXPRESS;initial catalog=AnglersCamp;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Vasiok\\Desktop\\AnglesCamp\\AnglesCamp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='AnglersCampEntities']/@connectionString" />
+  </parameter>
+</parameters>
