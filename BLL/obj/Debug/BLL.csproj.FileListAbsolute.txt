@@ -1,4 +1,3 @@
-C:\Users\Vasiok\Desktop\AnglesCamp\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Debug\BLL.dll
 C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Debug\BLL.pdb
 C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Debug\BOL.dll
@@ -8,5 +7,6 @@ C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Debug\EntityFramework.dll
 C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Debug\BOL.pdb
 C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Debug\DAL.pdb
 C:\Users\Vasiok\Desktop\AnglesCamp\BLL\bin\Debug\EntityFramework.xml
+C:\Users\Vasiok\Desktop\AnglesCamp\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
 C:\Users\Vasiok\Desktop\AnglesCamp\BLL\obj\Debug\BLL.dll
 C:\Users\Vasiok\Desktop\AnglesCamp\BLL\obj\Debug\BLL.pdb
